@@ -1,0 +1,52 @@
+
+TOMACT INSTALLATION EC2-AMAZON LINUX
+==================================================================================================================
+tomcat download check which one do u need ?
+download in opt folder
+cd /opt
+wget  https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.96/bin/apache-tomcat-8.5.96.tar.gz
+tar -xvf apache-tomcat-8.5.96.tar.gz
+mv apache-tomcat-8.5.96 tomcat
+cd tomcat/
+cd bin/
+ll
+sh startup.sh
+sh shutdown.sh
+
+find / -name context.xml
+vi /opt/tomcat/webapps/manager/META-INF/context.xml
+edit MANAGER and comment the line 
+excample
+=========================================================================
+<!-- <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+
+edit another host-manager
+vi /opt/tomcat/webapps/host-manager/META-INF/context.xml
+========================================================================
+<!-- <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+cd ../bin
+sh shutdown.sh
+sh startup.sh
+cd ../conf/
+ll
+vi tomcat-users.xml
+add this user names password 
+excample
+=========
+‹role rolename="manager-gui" />
+‹role rolename="manager-status" />
+‹role rolename="manager-script" />
+<role rolename="manager-jmx" />
+<role rolename="admin-gui" />
+‹role rolename="admin-script" />
+<user username="tomcat" password="tomcat" roles="manager-gui, Idmin-gui, manager-status, manager-script, manager-jmx" />
+
+cd ../bin/
+ll
+sh shutdown.sh
+sh startup.sh
+ done thank you
+
+
