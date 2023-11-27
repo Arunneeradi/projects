@@ -1,0 +1,92 @@
+how to create vpc and subnets and sg,nat-gw
+
+first create vpc
+create vpc 
+amazon
+cidr 10.0.0/16
+create vpc
+
+SUBNET
+
+first create subnet
+ public subnet01
+10.0. this is constant 10.0
+0.0. not constant we can change this
+like
+public
+10.0.1.0/24
+
+10.0.2.0/24
+like this
+private 
+10.0.11.0/24
+
+10.0.12.0/24
+next subnet asscoctaion
+private and public
+add public route association
+10.0.1.0/24
+10.0.2.0/24
+
+add private association
+10.0.11.0/24
+10.0.12.0/24
+
+internet gw
+
+create igw 
+amazon igw
+attach to vpc
+
+next route table
+create route for public
+create route for private
+edit route 
+add their traffic allow 0.0.0.0/0
+add internt gatwayallow
+
+if u are adding nat gatway create route for private
+edit route
+add natgateway
+
+SECURITY GATEWAY
+create sg amazon
+allow ssh to amazon servre
+inbound rules
+my ip allow which ip if u want to allow office ip or allow anywhere
+cretaed
+
+
+CReate ec2 instance
+connect through public ip
+vim amazon.pem
+chmod 400 amazon.pem
+
+
+NAT GW
+first u create 
+ELASTIC ip
+static ip
+
+craete nategatwy
+while craeting nateway u have connect public ip only that is default 
+because u have to select public subnet
+next static ip 
+and create nat gw
+
+
+craete SEcurity group
+SECURITY GATEWAY
+create sg amazon
+allow ssh to amazon servre
+inbound rules
+allow only 10.0.1.0/16 ki allow chesthey company lo una private ga connect avutham
+cretaed
+
+and go to route allow 
+add their 
+if u are adding nat gatway create route for private
+edit route
+add natgateway
+
+
